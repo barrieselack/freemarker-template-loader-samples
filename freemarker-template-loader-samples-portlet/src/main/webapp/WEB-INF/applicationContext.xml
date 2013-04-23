@@ -1,0 +1,60 @@
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans
+			http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/context
+			http://www.springframework.org/schema/context/spring-context-3.0.xsd
+		http://www.springframework.org/schema/util
+			http://www.springframework.org/schema/util/spring-util-3.0.xsd
+	"
+>
+
+	<context:property-placeholder location="classpath:freemarker.properties" ignore-unresolvable="true"/>
+
+	<bean id="liferayFreemarkerTemplateLoader" class="com.monator.freemarker.service.LiferayFreemarkerTemplateLoader">
+		<constructor-arg value="${site.name}" index="0"/>
+		<constructor-arg value="${create.site.if.not.exists}" index="1"/>
+		<constructor-arg value="${freemarker.template.path}" index="2"/>
+		<constructor-arg value="${create.folder.if.not.exists}" index="3"/>
+		<constructor-arg value="/WEB-INF/freemarker/default/view.ftl" index="4"/>
+	</bean>
+	
+	<bean id="freemarkerTemplateLoaderList" class="java.util.ArrayList">
+		<constructor-arg>
+			<list>
+				<ref bean="liferayFreemarkerTemplateLoader"/>
+			</list>
+		</constructor-arg>
+	</bean>
+ 
+ <!-- This config bean is used when loading templates using your custom template loader(s) -->
+	<bean
+		id="freemarkerConfig"
+		class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer"
+		p:preferFileSystemAccess="false"
+	>
+		<property name="preTemplateLoaders" ref="freemarkerTemplateLoaderList" />
+	</bean>
+	
+	<!-- This config bean is used when loading templates from inside your portlet. As one does with JSPs.
+	<bean
+		id="freemarkerConfig"
+		class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer"
+		p:templateLoaderPath="/WEB-INF/freemarker/"
+	/>
+	
+	-->
+	<bean id="viewResolver" class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
+		<property name="cache" value="true" />
+  		<property name="prefix" value="" />
+  		<property name="suffix" value=".ftl" />
+	</bean>
+	
+	
+	
+</beans>
