@@ -24,9 +24,16 @@
 		<constructor-arg value="/WEB-INF/freemarker/default/view.ftl" index="4"/>
 	</bean>
 	
+	<bean id="cmisFreemarkerTemplateLoader" class="com.monator.freemarker.service.CMISFreemarkerTemplateLoader">
+		<constructor-arg value="${freemarker.template.path}" index="0"/>
+		<constructor-arg value="${create.folder.if.not.exists}" index="1"/>
+		<constructor-arg value="/WEB-INF/freemarker/default/view.ftl" index="2"/>
+	</bean>
+	
 	<bean id="freemarkerTemplateLoaderList" class="java.util.ArrayList">
 		<constructor-arg>
 			<list>
+				<ref bean="cmisFreemarkerTemplateLoader"/>
 				<ref bean="liferayFreemarkerTemplateLoader"/>
 			</list>
 		</constructor-arg>

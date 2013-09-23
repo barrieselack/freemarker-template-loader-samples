@@ -4,5 +4,6 @@
 <display>
 	<category name="Freemarker Template Loader Sample">
 		<portlet id="liferayFreemarkerTemplateLoader" />
+		<portlet id="cmisFreemarkerTemplateLoader" />
 	</category>
 </display>

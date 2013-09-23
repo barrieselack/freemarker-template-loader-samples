@@ -87,7 +87,7 @@ public class LiferayFreemarkerTemplateLoader implements TemplateLoader {
     }
 
     /**
-     * Using Liferay's API to fetch the template from the Document and Media Library and adds the folderId of the template folder and
+     * Uses Liferay's API to fetch the template from the Document and Media Library and adds the folderId of the template folder and
      * groupId (Site) to Liferay's cache for faster access. Site and folder path is created if missing, depending on the value of
      * <code>create_folder</code> and <code>create_site</code>.
      * 

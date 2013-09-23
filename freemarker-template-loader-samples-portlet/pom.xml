@@ -101,10 +101,36 @@
 		    <artifactId>freemarker</artifactId>
 		    <version>2.3.19</version>
 		</dependency>
+		<dependency>
+	    <groupId>org.apache.chemistry.opencmis</groupId>
+	    <artifactId>chemistry-opencmis-client-api</artifactId>
+	    <version>${org.apache.chemistry.version}</version>
+	</dependency>
+	<dependency>
+	    <groupId>org.apache.chemistry.opencmis</groupId>
+	    <artifactId>chemistry-opencmis-client-bindings</artifactId>
+	    <version>${org.apache.chemistry.version}</version>
+	</dependency>
+	<dependency>
+	    <groupId>org.apache.chemistry.opencmis</groupId>
+	    <artifactId>chemistry-opencmis-client-impl</artifactId>
+	    <version>${org.apache.chemistry.version}</version>
+	</dependency>
+	<dependency>
+	    <groupId>org.apache.chemistry.opencmis</groupId>
+	    <artifactId>chemistry-opencmis-commons-api</artifactId>
+	    <version>${org.apache.chemistry.version}</version>
+	</dependency>
+	<dependency>
+	    <groupId>org.apache.chemistry.opencmis</groupId>
+	    <artifactId>chemistry-opencmis-commons-impl</artifactId>
+	    <version>${org.apache.chemistry.version}</version>
+	</dependency>
 	</dependencies>
 	<properties>
 		<liferay.version>6.1.20</liferay.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<org.springframework.version>3.1.2.RELEASE</org.springframework.version>
+		<org.apache.chemistry.version>0.6.0</org.apache.chemistry.version>
 	</properties>
 </project>
